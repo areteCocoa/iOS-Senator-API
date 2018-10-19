@@ -49,25 +49,23 @@ class SenatorCollectionViewController: UICollectionViewController {
 	}
 
 	@IBAction func filterButtonPressed(sender: Any) {
-		togglePopover()
+		toggleSortController()
 	}
 
-	private func togglePopover() {
-		if let popover = self.popover {
-			popover.willMove(toParent: nil)
-			popover.removeFromParent()
-			popover.view.removeFromSuperview()
-			popover.didMove(toParent: nil)
-			self.popover = nil
-		} else {
-			let controller = PopoverViewController.createFromNib()
+	private func toggleSortController() {
+		let controller = SenatorSortTableViewController(style: .grouped)
 
-			controller.willMove(toParent: self)
-			view.addSubview(controller.view)
-			controller.didMove(toParent: self)
-
-			self.popover = controller
+		controller.onSuccess = { config in
+			self.dismiss(animated: true, completion: nil)
 		}
+
+		controller.onCancel = {
+			self.dismiss(animated: true, completion: nil)
+		}
+
+		let wrapper = UINavigationController(rootViewController: controller)
+
+		present(wrapper, animated: true, completion: nil)
 	}
 }
 

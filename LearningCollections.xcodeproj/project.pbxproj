@@ -19,6 +19,9 @@
 		547AFC8B217A5F7E00093557 /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547AFC89217A5F7E00093557 /* PopoverViewController.xib */; };
 		547AFC8E217A5FDA00093557 /* PopoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547AFC8C217A5FDA00093557 /* PopoverTableViewCell.swift */; };
 		547AFC8F217A5FDA00093557 /* PopoverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547AFC8D217A5FDA00093557 /* PopoverTableViewCell.xib */; };
+		547AFC92217A800E00093557 /* SenatorSortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547AFC91217A800E00093557 /* SenatorSortTableViewController.swift */; };
+		547AFC95217A806600093557 /* SenatorSortTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547AFC93217A806600093557 /* SenatorSortTableViewCell.swift */; };
+		547AFC96217A806600093557 /* SenatorSortTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547AFC94217A806600093557 /* SenatorSortTableViewCell.xib */; };
 		5497B2AD216F09C7004E69B4 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5497B2AC216F09C7004E69B4 /* CollectionViewCell.xib */; };
 		54E2A0AC21766FBF00133338 /* SenatorCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E2A0AB21766FBF00133338 /* SenatorCollectionViewModel.swift */; };
 		54E2A0AF2176745500133338 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E2A0AD2176745500133338 /* HeaderCollectionReusableView.swift */; };
@@ -55,6 +58,9 @@
 		547AFC89217A5F7E00093557 /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
 		547AFC8C217A5FDA00093557 /* PopoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverTableViewCell.swift; sourceTree = "<group>"; };
 		547AFC8D217A5FDA00093557 /* PopoverTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverTableViewCell.xib; sourceTree = "<group>"; };
+		547AFC91217A800E00093557 /* SenatorSortTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenatorSortTableViewController.swift; sourceTree = "<group>"; };
+		547AFC93217A806600093557 /* SenatorSortTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenatorSortTableViewCell.swift; sourceTree = "<group>"; };
+		547AFC94217A806600093557 /* SenatorSortTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SenatorSortTableViewCell.xib; sourceTree = "<group>"; };
 		5497B2AC216F09C7004E69B4 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		54E2A0AB21766FBF00133338 /* SenatorCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenatorCollectionViewModel.swift; sourceTree = "<group>"; };
 		54E2A0AD2176745500133338 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -105,14 +111,15 @@
 			children = (
 				544535FE216E9ADD00DDE87D /* AppDelegate.swift */,
 				54453600216E9ADD00DDE87D /* SenatorCollectionViewController.swift */,
-				54E2A0AB21766FBF00133338 /* SenatorCollectionViewModel.swift */,
+				547AFC97217A806900093557 /* Sort */,
+				547AFC98217A822F00093557 /* ViewModel */,
 				54E2A0AA2176506D00133338 /* View */,
 				54E3CD63216FC61500E7C743 /* Model */,
-				547AFC90217A7FCD00093557 /* Popover */,
 				54453602216E9ADD00DDE87D /* Main.storyboard */,
 				54453605216E9ADF00DDE87D /* Assets.xcassets */,
 				54453607216E9ADF00DDE87D /* LaunchScreen.storyboard */,
 				5445360A216E9ADF00DDE87D /* Info.plist */,
+				547AFC90217A7FCD00093557 /* Popover */,
 			);
 			path = LearningCollections;
 			sourceTree = "<group>";
@@ -135,6 +142,24 @@
 				547AFC8D217A5FDA00093557 /* PopoverTableViewCell.xib */,
 			);
 			path = Popover;
+			sourceTree = "<group>";
+		};
+		547AFC97217A806900093557 /* Sort */ = {
+			isa = PBXGroup;
+			children = (
+				547AFC91217A800E00093557 /* SenatorSortTableViewController.swift */,
+				547AFC93217A806600093557 /* SenatorSortTableViewCell.swift */,
+				547AFC94217A806600093557 /* SenatorSortTableViewCell.xib */,
+			);
+			path = Sort;
+			sourceTree = "<group>";
+		};
+		547AFC98217A822F00093557 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				54E2A0AB21766FBF00133338 /* SenatorCollectionViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		54E2A0AA2176506D00133338 /* View */ = {
@@ -244,6 +269,7 @@
 				54E2A0B02176745500133338 /* HeaderCollectionReusableView.xib in Resources */,
 				547AFC8B217A5F7E00093557 /* PopoverViewController.xib in Resources */,
 				54453606216E9ADF00DDE87D /* Assets.xcassets in Resources */,
+				547AFC96217A806600093557 /* SenatorSortTableViewCell.xib in Resources */,
 				547AFC8F217A5FDA00093557 /* PopoverTableViewCell.xib in Resources */,
 				5497B2AD216F09C7004E69B4 /* CollectionViewCell.xib in Resources */,
 				54453604216E9ADD00DDE87D /* Main.storyboard in Resources */,
@@ -269,7 +295,9 @@
 				547AFC8A217A5F7E00093557 /* PopoverViewController.swift in Sources */,
 				54453601216E9ADD00DDE87D /* SenatorCollectionViewController.swift in Sources */,
 				547AFC8E217A5FDA00093557 /* PopoverTableViewCell.swift in Sources */,
+				547AFC95217A806600093557 /* SenatorSortTableViewCell.swift in Sources */,
 				54453621216E9FA800DDE87D /* CollectionViewCell.swift in Sources */,
+				547AFC92217A800E00093557 /* SenatorSortTableViewController.swift in Sources */,
 				5415003E2171366600779D1D /* Senator.swift in Sources */,
 				54E3CD62216FC61100E7C743 /* SenatorAPITaskManager.swift in Sources */,
 				544535FF216E9ADD00DDE87D /* AppDelegate.swift in Sources */,
