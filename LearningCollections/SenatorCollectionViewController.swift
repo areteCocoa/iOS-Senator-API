@@ -22,6 +22,8 @@ class SenatorCollectionViewController: UICollectionViewController {
 		}
 	}
 
+	private var popover: PopoverViewController?
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
@@ -47,7 +49,25 @@ class SenatorCollectionViewController: UICollectionViewController {
 	}
 
 	@IBAction func filterButtonPressed(sender: Any) {
-		print("Filter button was pressed.")
+		togglePopover()
+	}
+
+	private func togglePopover() {
+		if let popover = self.popover {
+			popover.willMove(toParent: nil)
+			popover.removeFromParent()
+			popover.view.removeFromSuperview()
+			popover.didMove(toParent: nil)
+			self.popover = nil
+		} else {
+			let controller = PopoverViewController.createFromNib()
+
+			controller.willMove(toParent: self)
+			view.addSubview(controller.view)
+			controller.didMove(toParent: self)
+
+			self.popover = controller
+		}
 	}
 }
 
