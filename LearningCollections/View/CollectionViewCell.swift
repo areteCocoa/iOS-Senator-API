@@ -37,6 +37,10 @@ class CollectionViewCell: UICollectionViewCell {
 		}
 	}
 
+	override func awakeFromNib() {
+		super.awakeFromNib()
+	}
+
 	private func updateViews() {
 		nameLabel?.text = viewModel?.name
 		stateLabel?.text = viewModel?.state

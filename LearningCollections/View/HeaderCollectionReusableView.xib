@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="U6b-Vx-4bR" customClass="HeaderCollectionReusableView" customModule="LearningCollections" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIE-sE-sSb">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GF7-Ot-mNY">
+                            <rect key="frame" x="8" y="8" width="304" height="64"/>
+                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.42655369639396667" green="0.47584608197212219" blue="0.48026475310325623" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="GF7-Ot-mNY" firstAttribute="leading" secondItem="gIE-sE-sSb" secondAttribute="leadingMargin" id="GtM-w4-jwF"/>
+                        <constraint firstItem="GF7-Ot-mNY" firstAttribute="top" secondItem="gIE-sE-sSb" secondAttribute="topMargin" id="Ot2-Av-cRl"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="GF7-Ot-mNY" secondAttribute="trailing" id="bTY-he-Ysk"/>
+                        <constraint firstAttribute="bottomMargin" secondItem="GF7-Ot-mNY" secondAttribute="bottom" id="kPI-8e-QNN"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="gIE-sE-sSb" secondAttribute="bottom" id="0Cn-BV-QE3"/>
+                <constraint firstItem="gIE-sE-sSb" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="LuT-oe-3qm"/>
+                <constraint firstItem="gIE-sE-sSb" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="bmU-38-Gup"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="gIE-sE-sSb" secondAttribute="trailing" id="daV-Lt-ZjW"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <connections>
+                <outlet property="nameLabel" destination="GF7-Ot-mNY" id="hvl-o7-HNa"/>
+            </connections>
+            <point key="canvasLocation" x="132.80000000000001" y="168.21589205397302"/>
+        </collectionReusableView>
+    </objects>
+</document>

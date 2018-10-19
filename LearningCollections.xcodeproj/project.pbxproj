@@ -16,6 +16,9 @@
 		54453614216E9ADF00DDE87D /* LearningCollectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54453613216E9ADF00DDE87D /* LearningCollectionsTests.swift */; };
 		54453621216E9FA800DDE87D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54453620216E9FA800DDE87D /* CollectionViewCell.swift */; };
 		5497B2AD216F09C7004E69B4 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5497B2AC216F09C7004E69B4 /* CollectionViewCell.xib */; };
+		54E2A0AC21766FBF00133338 /* SenatorCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E2A0AB21766FBF00133338 /* SenatorCollectionViewModel.swift */; };
+		54E2A0AF2176745500133338 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E2A0AD2176745500133338 /* HeaderCollectionReusableView.swift */; };
+		54E2A0B02176745500133338 /* HeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54E2A0AE2176745500133338 /* HeaderCollectionReusableView.xib */; };
 		54E3CD5E216FC5F100E7C743 /* SenatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3CD5D216FC5F100E7C743 /* SenatorModel.swift */; };
 		54E3CD60216FC5FF00E7C743 /* SenatorAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3CD5F216FC5FF00E7C743 /* SenatorAPIModel.swift */; };
 		54E3CD62216FC61100E7C743 /* SenatorAPITaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3CD61216FC61100E7C743 /* SenatorAPITaskManager.swift */; };
@@ -45,6 +48,9 @@
 		54453615216E9ADF00DDE87D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54453620216E9FA800DDE87D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5497B2AC216F09C7004E69B4 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		54E2A0AB21766FBF00133338 /* SenatorCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenatorCollectionViewModel.swift; sourceTree = "<group>"; };
+		54E2A0AD2176745500133338 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		54E2A0AE2176745500133338 /* HeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		54E3CD5D216FC5F100E7C743 /* SenatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenatorModel.swift; sourceTree = "<group>"; };
 		54E3CD5F216FC5FF00E7C743 /* SenatorAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenatorAPIModel.swift; sourceTree = "<group>"; };
 		54E3CD61216FC61100E7C743 /* SenatorAPITaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenatorAPITaskManager.swift; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 			children = (
 				544535FE216E9ADD00DDE87D /* AppDelegate.swift */,
 				54453600216E9ADD00DDE87D /* SenatorCollectionViewController.swift */,
+				54E2A0AB21766FBF00133338 /* SenatorCollectionViewModel.swift */,
 				54E2A0AA2176506D00133338 /* View */,
 				54E3CD63216FC61500E7C743 /* Model */,
 				54453602216E9ADD00DDE87D /* Main.storyboard */,
@@ -113,6 +120,8 @@
 		54E2A0AA2176506D00133338 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				54E2A0AD2176745500133338 /* HeaderCollectionReusableView.swift */,
+				54E2A0AE2176745500133338 /* HeaderCollectionReusableView.xib */,
 				54453620216E9FA800DDE87D /* CollectionViewCell.swift */,
 				5497B2AC216F09C7004E69B4 /* CollectionViewCell.xib */,
 			);
@@ -212,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54453609216E9ADF00DDE87D /* LaunchScreen.storyboard in Resources */,
+				54E2A0B02176745500133338 /* HeaderCollectionReusableView.xib in Resources */,
 				54453606216E9ADF00DDE87D /* Assets.xcassets in Resources */,
 				5497B2AD216F09C7004E69B4 /* CollectionViewCell.xib in Resources */,
 				54453604216E9ADD00DDE87D /* Main.storyboard in Resources */,
@@ -233,11 +243,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				54E3CD5E216FC5F100E7C743 /* SenatorModel.swift in Sources */,
+				54E2A0AF2176745500133338 /* HeaderCollectionReusableView.swift in Sources */,
 				54453601216E9ADD00DDE87D /* SenatorCollectionViewController.swift in Sources */,
 				54453621216E9FA800DDE87D /* CollectionViewCell.swift in Sources */,
 				5415003E2171366600779D1D /* Senator.swift in Sources */,
 				54E3CD62216FC61100E7C743 /* SenatorAPITaskManager.swift in Sources */,
 				544535FF216E9ADD00DDE87D /* AppDelegate.swift in Sources */,
+				54E2A0AC21766FBF00133338 /* SenatorCollectionViewModel.swift in Sources */,
 				54E3CD60216FC5FF00E7C743 /* SenatorAPIModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

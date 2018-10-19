@@ -9,32 +9,9 @@
 import UIKit
 
 fileprivate let reuse = "reuse"
+fileprivate let headerReuse = "header"
 
-struct SenatorCollectionViewModel {
-	init(senators: [Senator]) {
-		sections = [
-			SenatorCollectionSectionViewModel(title: "Main", senators: senators)
-		]
-	}
-
-	func model(forIndexPath indexPath: IndexPath) -> SenatorCollectionCellViewModel {
-		return sections[indexPath.section].data[indexPath.row]
-	}
-
-	var sections: [SenatorCollectionSectionViewModel]
-}
-
-struct SenatorCollectionSectionViewModel {
-	init(title: String, senators: [Senator]) {
-		self.title = title
-		data = senators.map { SenatorCollectionCellViewModel(senator: $0) }
-	}
-
-	var title: String
-	var data: [SenatorCollectionCellViewModel]
-}
-
-class SenatorCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SenatorCollectionViewController: UICollectionViewController {
 
 	var model = SenatorModel()
 	var viewModel: SenatorCollectionViewModel? {
@@ -53,6 +30,10 @@ class SenatorCollectionViewController: UICollectionViewController, UICollectionV
 
 		collectionView.register(UINib(nibName: "CollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: reuse)
 
+		collectionView.register(UINib(nibName: "HeaderCollectionReusableView", bundle: Bundle.main),
+								forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+								withReuseIdentifier: headerReuse)
+
 		model.delegate = self
 		model.fetchData()
 	}
@@ -65,23 +46,23 @@ class SenatorCollectionViewController: UICollectionViewController, UICollectionV
 		}
 	}
 
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-		return UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+	@IBAction func filterButtonPressed(sender: Any) {
+		print("Filter button was pressed.")
+	}
+}
+
+extension SenatorCollectionViewController: SenatorModelProtocol {
+	func senatorModel(model: SenatorModel, didReceiveData data: [Senator]) {
+		viewModel = SenatorCollectionViewModel(senators: data)
 	}
 
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		let width = collectionView.frame.size.width * 0.8
-		let height: CGFloat = {
-			guard let model = self.viewModel else { return 0 }
-			let cellModel = model.model(forIndexPath: indexPath)
-			let hasSpecial = cellModel.special != nil
-
-			return hasSpecial ? 100 : 65
-		}()
-
-		return CGSize(width: width, height: height)
+	func senatorModel(model: SenatorModel, didEncounterError error: Error) {
+		print("Error encountered from model object: \(error)")
 	}
+}
 
+// CollectionViewDataSource
+extension SenatorCollectionViewController {
 	override func numberOfSections(in collectionView: UICollectionView) -> Int {
 		guard let viewModel = self.viewModel else { return 0 }
 		return viewModel.sections.count
@@ -103,14 +84,40 @@ class SenatorCollectionViewController: UICollectionViewController, UICollectionV
 		return cell
 	}
 
+	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String,
+								 at indexPath: IndexPath) -> UICollectionReusableView {
+		let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+																   withReuseIdentifier: headerReuse,
+																   for: indexPath) as! HeaderCollectionReusableView
+		guard let section = viewModel?.sections[indexPath.section] else { fatalError() }
+		view.model = HeaderCollectionViewModel(name: section.title)
+
+		return view
+	}
 }
 
-extension SenatorCollectionViewController: SenatorModelProtocol {
-	func senatorModel(model: SenatorModel, didReceiveData data: [Senator]) {
-		viewModel = SenatorCollectionViewModel(senators: data)
+extension SenatorCollectionViewController: UICollectionViewDelegateFlowLayout {
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+		return UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
 	}
 
-	func senatorModel(model: SenatorModel, didEncounterError error: Error) {
-		print("Error encountered from model object: \(error)")
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		let width = collectionView.frame.size.width * 0.9
+		let height: CGFloat = {
+			guard let model = self.viewModel else { return 0 }
+			let cellModel = model.model(forIndexPath: indexPath)
+			let hasSpecial = cellModel.special != nil
+
+			return hasSpecial ? 100 : 65
+		}()
+
+		return CGSize(width: width, height: height)
+	}
+
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+						referenceSizeForHeaderInSection section: Int) -> CGSize {
+		let width = collectionView.frame.size.width * 0.8
+		let height: CGFloat = 35
+		return CGSize(width: width, height: height)
 	}
 }
