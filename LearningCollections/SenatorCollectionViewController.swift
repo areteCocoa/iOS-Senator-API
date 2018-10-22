@@ -54,6 +54,7 @@ class SenatorCollectionViewController: UICollectionViewController {
 
 	private func toggleSortController() {
 		let controller = SenatorSortTableViewController(style: .grouped)
+		controller.sortConfigration = viewModel?.sort
 
 		controller.onSuccess = { config in
 			self.dismiss(animated: true, completion: nil)

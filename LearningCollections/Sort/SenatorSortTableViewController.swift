@@ -10,12 +10,36 @@ import UIKit
 
 private let reuse = "reuse"
 
-struct SortConfiguration {
-	var sortType: SenatorCollectionViewSortType
-}
-
 typealias SenatorSortSuccessClosure = ((SortConfiguration) -> Void)
 typealias SenatorSortCancelClosure = (() -> ())
+
+//private struct SenatorSortTableViewModel {
+//	struct Section {
+//		var name: String
+//		var rows: [String]
+//	}
+//
+//	init(configuration: SortConfiguration) {
+//		self.configuration = configuration
+//		sections = [
+//			Section(name: "Sort", rows: [
+//
+//				])
+//		]
+//	}
+//
+//	private var sections: [Section]
+//	private var configuration: SortConfiguration
+//
+//	func title(forIndexPath indexPath: IndexPath) -> String {
+//		let section = sections[indexPath.section]
+//		return section.rows[indexPath.row]
+//	}
+//
+//	func accessorize(atIndexPath: IndexPath) -> Bool {
+//
+//	}
+//}
 
 class SenatorSortTableViewController: UITableViewController {
 
@@ -36,19 +60,9 @@ class SenatorSortTableViewController: UITableViewController {
 						   forCellReuseIdentifier: reuse)
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
 	@objc private func finishPressed(sender: Any) {
 		if let onSuccess = self.onSuccess {
-			onSuccess(SortConfiguration(sortType: .state))
+			onSuccess(SortConfiguration(type: .state, order: .ascending))
 		}
 	}
 
@@ -57,6 +71,21 @@ class SenatorSortTableViewController: UITableViewController {
 			onCancel()
 		}
 	}
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		switch section {
+		case 0:
+			return 2
+		default:
+			return 0
+		}
+    }
 
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		switch section {
@@ -83,13 +112,28 @@ class SenatorSortTableViewController: UITableViewController {
 		}()
 
 		cell.accessoryType = {
-			if let config = sortConfigration {
-				return .none
-			} else {
-				return .none
-			}
+			guard let config = sortConfigration else { return .none }
+			let accessorize = (config.type == .state && indexPath.row == 0) ||
+				(config.type == .name && indexPath.row == 1)
+			return accessorize ? .checkmark : .none
 		}()
 
         return cell
     }
+
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//		super.tableView(tableView, didSelectRowAt: indexPath)
+
+		if indexPath.section == 0 {
+			if indexPath.row == 0 {
+				sortConfigration?.type = .state
+			} else if indexPath.row == 1 {
+				sortConfigration?.type = .name
+			}
+		}
+
+		tableView.deselectRow(at: indexPath, animated: true)
+
+		tableView.reloadData()
+	}
 }

@@ -8,6 +8,11 @@
 
 import UIKit
 
+public struct SortConfiguration {
+	var type: SenatorCollectionViewSortType
+	var order: SenatorCollectionViewSortOrder
+}
+
 enum SenatorCollectionViewSortType {
 	case state
 	case name
@@ -31,21 +36,21 @@ struct SenatorCollectionSectionViewModel {
 class SenatorCollectionViewModel: NSObject {
 	var sections: [SenatorCollectionSectionViewModel]
 
-	var sort: SenatorCollectionViewSortType {
+	var sort: SortConfiguration {
 		didSet {
-			sections = SenatorCollectionViewModel.sort(data: data, usingSortType: sort)
+			sections = SenatorCollectionViewModel.sort(data: data, usingSortConfiguration: sort)
 		}
 	}
 
 	private var data: [Senator]
 
 	convenience init(senators: [Senator]) {
-		self.init(senators: senators, sort: .state)
+		self.init(senators: senators, sort: SortConfiguration(type: .state, order: .descending))
 	}
 
-	required init(senators: [Senator], sort: SenatorCollectionViewSortType) {
+	required init(senators: [Senator], sort: SortConfiguration) {
 		self.sort = sort
-		sections = SenatorCollectionViewModel.sort(data: senators, usingSortType: sort)
+		sections = SenatorCollectionViewModel.sort(data: senators, usingSortConfiguration: sort)
 		data = senators
 	}
 
@@ -53,8 +58,7 @@ class SenatorCollectionViewModel: NSObject {
 		return sections[indexPath.section].data[indexPath.row]
 	}
 
-	private static func sort(data: [Senator],
-							 usingSortType sort: SenatorCollectionViewSortType) -> [SenatorCollectionSectionViewModel] {
+	private static func sort(data: [Senator], usingSortConfiguration configuration: SortConfiguration) -> [SenatorCollectionSectionViewModel] {
 		var sections = [String: [Senator]]()
 
 		for senator in data {
