@@ -54,9 +54,11 @@ class SenatorCollectionViewController: UICollectionViewController {
 
 	private func toggleSortController() {
 		let controller = SenatorSortTableViewController(style: .grouped)
-		controller.sortConfigration = viewModel?.sort
+		controller.sortConfiguration = viewModel?.sort
 
 		controller.onSuccess = { config in
+			self.viewModel?.sort = config
+			self.collectionView.reloadData()
 			self.dismiss(animated: true, completion: nil)
 		}
 

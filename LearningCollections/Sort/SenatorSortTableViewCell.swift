@@ -10,6 +10,15 @@ import UIKit
 
 class SenatorSortTableViewCell: UITableViewCell {
 
+	var model: SenatorSortTableViewCellModel? {
+		didSet {
+			model?.accessorizedChanged = { [weak self] accessorized in
+				self?.accessorizedChanged(accessorized: accessorized)
+			}
+			updateViews()
+		}
+	}
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +29,13 @@ class SenatorSortTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
+	private func updateViews() {
+		textLabel?.text = model?.name ?? ""
+		accessoryType = (model?.accessorized ?? false) ? .checkmark : .none
+	}
+
+	private func accessorizedChanged(accessorized: Bool) {
+		updateViews()
+	}
 }

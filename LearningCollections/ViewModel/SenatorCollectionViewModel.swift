@@ -62,7 +62,14 @@ class SenatorCollectionViewModel: NSObject {
 		var sections = [String: [Senator]]()
 
 		for senator in data {
-			let id = senator.state
+			let id = { () -> String in
+				switch configuration.type {
+				case .state:
+					return senator.state
+				case .name:
+					return "\(senator.person.lastName.first!)"
+				}
+			}()
 			var old = sections[id] ?? [Senator]()
 			old.append(senator)
 			sections[id] = old
@@ -75,7 +82,7 @@ class SenatorCollectionViewModel: NSObject {
 			sectionModels.append(SenatorCollectionSectionViewModel(title: id, senators: datas))
 		}
 
-		sectionModels.sort { $0.title < $1.title }
+		sectionModels.sort { (configuration.order == .ascending) ? ($1.title < $0.title) : ($0.title < $1.title) }
 
 		return sectionModels
 	}

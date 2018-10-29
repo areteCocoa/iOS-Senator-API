@@ -15,6 +15,7 @@
 		54453609216E9ADF00DDE87D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54453607216E9ADF00DDE87D /* LaunchScreen.storyboard */; };
 		54453614216E9ADF00DDE87D /* LearningCollectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54453613216E9ADF00DDE87D /* LearningCollectionsTests.swift */; };
 		54453621216E9FA800DDE87D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54453620216E9FA800DDE87D /* CollectionViewCell.swift */; };
+		5459F4C5217E73D30076D415 /* SenatorSortTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5459F4C4217E73D30076D415 /* SenatorSortTableViewModel.swift */; };
 		547AFC8A217A5F7E00093557 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547AFC88217A5F7E00093557 /* PopoverViewController.swift */; };
 		547AFC8B217A5F7E00093557 /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547AFC89217A5F7E00093557 /* PopoverViewController.xib */; };
 		547AFC8E217A5FDA00093557 /* PopoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547AFC8C217A5FDA00093557 /* PopoverTableViewCell.swift */; };
@@ -54,6 +55,7 @@
 		54453613216E9ADF00DDE87D /* LearningCollectionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningCollectionsTests.swift; sourceTree = "<group>"; };
 		54453615216E9ADF00DDE87D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54453620216E9FA800DDE87D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		5459F4C4217E73D30076D415 /* SenatorSortTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenatorSortTableViewModel.swift; sourceTree = "<group>"; };
 		547AFC88217A5F7E00093557 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		547AFC89217A5F7E00093557 /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
 		547AFC8C217A5FDA00093557 /* PopoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverTableViewCell.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				547AFC91217A800E00093557 /* SenatorSortTableViewController.swift */,
+				5459F4C4217E73D30076D415 /* SenatorSortTableViewModel.swift */,
 				547AFC93217A806600093557 /* SenatorSortTableViewCell.swift */,
 				547AFC94217A806600093557 /* SenatorSortTableViewCell.xib */,
 			);
@@ -298,6 +301,7 @@
 				547AFC95217A806600093557 /* SenatorSortTableViewCell.swift in Sources */,
 				54453621216E9FA800DDE87D /* CollectionViewCell.swift in Sources */,
 				547AFC92217A800E00093557 /* SenatorSortTableViewController.swift in Sources */,
+				5459F4C5217E73D30076D415 /* SenatorSortTableViewModel.swift in Sources */,
 				5415003E2171366600779D1D /* Senator.swift in Sources */,
 				54E3CD62216FC61100E7C743 /* SenatorAPITaskManager.swift in Sources */,
 				544535FF216E9ADD00DDE87D /* AppDelegate.swift in Sources */,
